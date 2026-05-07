@@ -1,0 +1,474 @@
+/* GAMBLING - Casino theme */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Bebas+Neue&display=swap');
+
+:root {
+    --zelena: #0a3d1f;
+    --zelena-tem: #062814;
+    --zlata: #d4af37;
+    --zlata-sv: #f5d76e;
+    --zlata-tm: #8b6914;
+    --rdeca: #c0392b;
+    --rdeca-sv: #e74c3c;
+    --bela: #f8f5e6;
+    --siva: #b8b8b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--bela);
+    background: radial-gradient(ellipse at top, #1a6b3a 0%, var(--zelena) 50%, var(--zelena-tem) 100%);
+    min-height: 100vh;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: calc(100vh - 24px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* HERO */
+.hero { text-align: center; padding: 4px 0 6px; flex-shrink: 0; }
+
+.naslov {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    letter-spacing: 0.15em;
+    color: var(--zlata);
+    text-shadow: 0 2px 0 var(--zlata-tm), 0 4px 0 var(--zlata-tm), 0 6px 12px rgba(0,0,0,0.7);
+    line-height: 1;
+}
+
+.podnaslov {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    opacity: 0.85;
+    margin-top: 6px;
+}
+
+/* KARTICE */
+.card {
+    background: linear-gradient(180deg, rgba(10,61,31,0.85), rgba(6,40,20,0.95));
+    border: 2px solid var(--zlata);
+    border-radius: 10px;
+    padding: 14px 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--zlata-sv);
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter {
+    font-family: 'Bebas Neue', sans-serif;
+    background: var(--zlata);
+    color: var(--zelena-tem);
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+/* OBRAZEC */
+.obrazec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.obrazec input {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 6px;
+    padding: 9px 12px;
+    color: var(--bela);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.obrazec input:focus {
+    outline: none;
+    border-color: var(--zlata);
+    background: rgba(0,0,0,0.5);
+}
+
+.full { grid-column: 1 / -1; }
+
+/* GUMBI */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+    background: linear-gradient(180deg, var(--zlata-sv), var(--zlata));
+    color: var(--zelena-tem);
+    box-shadow: 0 3px 0 var(--zlata-tm);
+}
+
+.btn-success {
+    background: linear-gradient(180deg, #2ecc71, #27ae60);
+    color: var(--bela);
+    box-shadow: 0 3px 0 #1a7d3e;
+    font-size: 18px;
+    padding: 12px 32px;
+}
+
+.btn-danger {
+    background: linear-gradient(180deg, var(--rdeca-sv), var(--rdeca));
+    color: var(--bela);
+    box-shadow: 0 3px 0 #7d1f15;
+}
+
+.btn-vrzi {
+    background: linear-gradient(180deg, var(--rdeca-sv), var(--rdeca));
+    color: var(--bela);
+    border: none;
+    box-shadow: 0 5px 0 #7d1f15, 0 6px 20px rgba(0,0,0,0.4);
+    font-size: 22px;
+    padding: 12px 40px;
+    letter-spacing: 0.25em;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    animation: utripaj 2s infinite;
+}
+
+@keyframes utripaj {
+    0%, 100% { box-shadow: 0 5px 0 #7d1f15, 0 6px 20px rgba(0,0,0,0.4); }
+    50% { box-shadow: 0 5px 0 #7d1f15, 0 6px 24px rgba(231,76,60,0.7); }
+}
+
+.akcije {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    padding: 4px 0;
+}
+
+/* TABELA */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.tabela thead { background: var(--zlata); }
+.tabela th {
+    color: var(--zelena-tem);
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1em;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.tabela td {
+    padding: 7px 12px;
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+
+.tabela tbody tr:nth-child(odd) { background: rgba(0,0,0,0.25); }
+.tabela tbody tr:nth-child(even) { background: rgba(0,0,0,0.4); }
+
+/* IZBIRA RUND */
+.runde-izbira {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.runda-opcija {
+    width: 100%;
+    background: rgba(0,0,0,0.35);
+    border: 2px solid rgba(212,175,55,0.3);
+    border-radius: 8px;
+    padding: 10px 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--bela);
+    font-family: inherit;
+}
+
+.runda-opcija:hover {
+    border-color: var(--zlata-sv);
+    background: rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+}
+
+.runda-opcija.izbrana {
+    background: linear-gradient(180deg, rgba(212,175,55,0.25), rgba(212,175,55,0.1));
+    border-color: var(--zlata);
+    box-shadow: 0 0 14px rgba(212,175,55,0.3);
+}
+
+.runda-stevilo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--zlata-sv);
+    letter-spacing: 0.1em;
+}
+
+.runda-info { font-size: 11px; color: var(--siva); }
+
+/* IGRA - status bar */
+.status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.status-runda {
+    color: var(--zlata);
+    font-size: 16px;
+    background: rgba(0,0,0,0.35);
+    padding: 3px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(212,175,55,0.4);
+}
+
+.status-link {
+    color: var(--rdeca-sv);
+    text-decoration: none;
+    border: 1px solid rgba(231,76,60,0.4);
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* IGRA - rezultati zgoraj */
+.rezultati-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.rezultat-uporabnika {
+    background: rgba(6,40,20,0.85);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 8px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.rezultat-zmagovalec {
+    border-color: var(--zlata);
+    box-shadow: 0 0 14px rgba(212,175,55,0.5);
+    background: rgba(26,107,58,0.95);
+}
+
+.r-ime {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.r-stevilo {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: var(--zlata);
+}
+
+.r-label { font-size: 8px; color: var(--siva); letter-spacing: 0.2em; display: block; text-align: center; }
+.r-vsota { font-size: 11px; color: var(--siva); }
+.r-vsota strong { color: var(--zlata-sv); }
+
+/* IGRALCI - 3 stolpci */
+.igralci {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+}
+
+.igralec {
+    background: linear-gradient(180deg, rgba(10,61,31,0.9), rgba(6,40,20,0.95));
+    border: 2px solid rgba(212,175,55,0.4);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.igralec-zmagovalec {
+    border-color: var(--zlata);
+    box-shadow: 0 0 24px rgba(212,175,55,0.5);
+    background: linear-gradient(180deg, rgba(26,107,58,0.9), rgba(10,61,31,0.95));
+}
+
+.ig-stevilka {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    color: var(--zlata-sv);
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+    padding-bottom: 6px;
+}
+
+.igralec-info { font-size: 13px; line-height: 1.3; }
+.info-naslov { font-size: 11px; color: var(--siva); font-style: italic; display: block; }
+
+.kocke {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(212,175,55,0.3);
+}
+
+.kocka {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.6));
+    animation: vrzi 0.6s ease backwards;
+}
+
+.kocka:nth-child(2) { animation-delay: 0.15s; }
+.kocka:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes vrzi {
+    0% { transform: rotate(-180deg) scale(0); opacity: 0; }
+    60% { transform: rotate(20deg) scale(1.2); opacity: 1; }
+    100% { transform: rotate(0) scale(1); }
+}
+
+.kocka-cakanje { opacity: 0.5; animation: none; filter: grayscale(0.5); }
+
+.vsota {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    border-top: 1px solid rgba(212,175,55,0.3);
+    padding-top: 6px;
+}
+
+.vsota strong { color: var(--zlata); font-size: 20px; }
+.vsota-cakanje { color: var(--siva); font-style: italic; opacity: 0.6; }
+
+/* AKCIJSKA VRSTICA */
+.akcijska-vrstica {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.vrzi-info {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--zlata-sv);
+    opacity: 0.8;
+}
+
+/* REZULTAT NA KONCU */
+.rezultat-kompakt {
+    background: linear-gradient(180deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+    border: 2px solid var(--zlata);
+    border-radius: 10px;
+    padding: 10px 26px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.zmaga-naslov {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--zlata);
+    letter-spacing: 0.15em;
+}
+
+.zmagovalec-ime {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.zmaga-vsota { font-size: 12px; color: var(--siva); }
+.zmaga-vsota strong { color: var(--zlata-sv); }
+
+.odstevanje-mini {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--siva);
+    border-left: 1px solid rgba(212,175,55,0.3);
+    padding-left: 14px;
+}
+
+.odstevanje-mini #odstevanje { color: var(--zlata-sv); font-size: 16px; }
+
+/* OSTALO */
+.napaka {
+    background: rgba(192,57,43,0.2);
+    border: 1px solid var(--rdeca-sv);
+    color: #ffd5d0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+/* Mobilno */
+@media (max-width: 700px) {
+    body { overflow: auto; }
+    .container { height: auto; min-height: calc(100vh - 24px); }
+    .igralci, .runde-izbira { grid-template-columns: 1fr 1fr; }
+    .rezultati-bar { grid-template-columns: 1fr; }
+}
